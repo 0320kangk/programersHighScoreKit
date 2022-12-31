@@ -1,4 +1,4 @@
-package hash;
+package hash.완주하지_못한_선수;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -37,7 +37,6 @@ public class 완주하지_못한_선수 {
 //        for (String s : participantList) {
 //
 //            if (!completionList.contains(s)) {
-//
 //                answer = s;
 //            }
 //            completionList.remove(s);
