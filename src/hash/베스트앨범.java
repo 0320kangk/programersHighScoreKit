@@ -22,7 +22,6 @@ public class 베스트앨범{
         int length = genres.length;
         Music[] musics = new Music[length];
         for (int i = 0; i < length; i++) {
-
             String genre = genres[i];
             int play = plays[i];
             genresHashMap.put(genre, genresHashMap.getOrDefault(genre, 0) + play);
