@@ -4,18 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class 정수_삼각형 {
-        /*
-        삼각형 배열의 사이즈 만큼의 list 만들기,
-        각 list 는 x번 거쳐간 숫자의 합을 담는다.
-        위 list를 list에 넣기
-        x번 쨰 거쳐간 list 합 방법
-        x-1 번쨰 list의 i번 인덱스와 x번 인덱스의 i번 인덱스의 합, i번과 i+1번 인덱스의 합 2가지 구하기
-        1 번쨰 7
-        2 번째 10, 15
-        3 번째 18, 11, 16, 15
-        ...
-         */
-
     public int solution(int[][] triangle) {
         List<List<Integer>> lists = new ArrayList<>();
         int length = triangle.length;
