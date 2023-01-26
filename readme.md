@@ -1,1 +1,1 @@
-프로그래머스 고득점 kit 코딩 연습
+[프로그래머스 고득점 kit 코딩 연습](https://school.programmers.co.kr/learn/challenges?tab=algorithm_practice_kit)
