@@ -1,4 +1,4 @@
-package stack;
+package stack.같은_숫자는_싫어;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -7,15 +7,15 @@ public class 같은_숫자는_싫어 {
         public int[] solution(int []arr) {
 
             Stack<Integer> stack = new Stack<>();
-            stack.push(arr[0]);
-            for (int num : arr) {
-                if (stack.peek() != num) {
-                    stack.push(num);
-                }
+            stack.add(arr[0]);
+            for (int i : arr) {
+                if(stack.peek() != i)
+                    stack.add(i);
             }
             return stack.stream()
-                    .mapToInt(num -> num)
+                    .mapToInt((num) -> num)
                     .toArray();
+
         }
 
     public static void main(String[] args) {
