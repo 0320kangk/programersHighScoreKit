@@ -21,11 +21,9 @@ public class 올바른_괄호 {
         return answer;
     }
     public static void main(String[] args) {
-
         올바른_괄호 올바른_괄호 = new 올바른_괄호();
         boolean solution = 올바른_괄호.solution("(())");
         System.out.println(solution);
-
     }
 
 }

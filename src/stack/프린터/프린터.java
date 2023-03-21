@@ -1,10 +1,30 @@
-package stack;
+package stack.프린터;
 
 import java.util.*;
 
 public class 프린터 {
-
     public int solution(int[] priorities, int location) {
+        int answer = 0;
+        Queue<Pair> queue= new LinkedList<>();
+        for (int i = 0; i < priorities.length; i++) {
+            queue.add(new Pair(i, priorities[i]));
+        }
+        Arrays.sort(priorities);
+        int index = priorities.length -1;
+        //순서데로 뺴서 몇번째인지 알아내기
+        while ( true ) {
+            Pair poll = queue.poll();
+            if (poll.value == priorities[index] ){
+               if (poll.index == location)
+                   break;
+               index--;
+               answer++;
+               continue;
+            }
+            queue.add(poll);
+        }
+        return ++answer;
+
 
         /*
         우선순위 큐 풀이
@@ -29,7 +49,7 @@ public class 프린터 {
             }
         }*/
 
-        LinkedList<Pair> queue = new LinkedList<>();
+/*        LinkedList<Pair> queue = new LinkedList<>();
         int answer = 0;
 
         for (int i = 0; i < priorities.length; i++) {
@@ -61,7 +81,7 @@ public class 프린터 {
             }
 
         }
-        return answer;
+        return answer;*/
 
     }
 
