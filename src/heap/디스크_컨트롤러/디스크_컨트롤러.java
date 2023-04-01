@@ -1,12 +1,35 @@
-package heap;
+package heap.디스크_컨트롤러;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class 디스크_컨트롤러 {
-
-
     public int solution(int[][] jobs) {
+        PriorityQueue<Integer[]> pqWaiting =  new PriorityQueue<>( (job1, job2) -> job1[0]-job2[0] );
+        for (int[] job : jobs) {
+            pqWaiting.add(new Integer[]{job[0], job[1]});
+        }
+        int workTime = 0;
+        int totalTime = 0;
+        PriorityQueue<Integer[]> pqJob = new PriorityQueue<>( (job1, job2) -> job1[1]-job2[1] );
+        while (!pqWaiting.isEmpty()){
+            while ( !pqWaiting.isEmpty() &&
+                    pqWaiting.peek()[0] <= workTime) {
+                pqJob.add(pqWaiting.poll());
+            }
+            if (!pqJob.isEmpty()) {
+                Integer[] poll = pqJob.poll();
+                totalTime += workTime - poll[0] + poll[1];
+                workTime += poll[1];
+            } else {
+                workTime = pqWaiting.peek()[0];
+            }
+            while (!pqJob.isEmpty())
+                pqWaiting.add(pqJob.poll());
+        }
+        int answer = totalTime / jobs.length;
+        return answer;
+
 
 //        시점, 수행시간
 //        jobs를 시점순으로 정렬한다.
@@ -20,6 +43,7 @@ public class 디스크_컨트롤러 {
 //        같은 대기시간이면 우선수위 큐에 들어가 정렬된다.
 
         //위치
+/*
         int location = 0;
         //수행되고난 직후의 시간
         int end = 0;
@@ -58,18 +82,16 @@ public class 디스크_컨트롤러 {
 
         int answer = totalTime / jobs.length;
         return answer;
-
+*/
     }
-
     /**
      * 원본 배열을 요청시점으로 정렬한다.
      * 작업시간기준으로 정렬하는 우선순위 큐를 만든다.
      * 원본배열에서 꺼낸
      */
-
     public static void main(String[] args) {
         디스크_컨트롤러 디스크_컨트롤러 = new 디스크_컨트롤러();
-        int solution = 디스크_컨트롤러.solution(new int [][]{{0, 3}, {1, 9}, {2, 6}});
+        int solution = 디스크_컨트롤러.solution(new int [][]{{0, 3}, {8, 10}, {3, 1}});
         System.out.println(solution);
     }
 }
