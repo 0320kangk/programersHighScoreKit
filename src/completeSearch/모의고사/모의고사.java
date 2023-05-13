@@ -3,11 +3,8 @@ package completeSearch;
 import java.util.*;
 
 public class 모의고사 {
-
     public int[] solution(int[] answers) {
-
         int[] scoreArray = new int[3];
-
         int[] a = {1, 2, 3, 4, 5};
         int[] b = {2, 1, 2, 3, 2, 4, 2, 5};
         int[] c = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
