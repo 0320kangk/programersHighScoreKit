@@ -1,11 +1,42 @@
-package completeSearch;
+package completeSearch.소수찾기;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class 소수_찾기 {
-
-    boolean[] isUsed = new boolean[10];
+    void dfsD(String numbers, int k, boolean[] isUsed, List<Integer> list) {
+        //만족하는 조건 소수라면?
+        double sqrt = Math.sqrt(k);
+        boolean decimal = true;
+        for (int i = 2; i <= sqrt; i++) {
+            if ( k % i == 0) {
+                decimal = false;
+                break;
+            }
+        }
+        if (decimal == true && k != 0 && k != 1){
+            if(!list.contains(k)){
+                list.add(k);
+            }
+        }
+        for (int i = 0; i < numbers.length(); i++) {
+            if ( !isUsed[i]) {
+                isUsed[i] = true;
+                dfsD(numbers, k * 10 + numbers.charAt(i) - '0', isUsed, list);
+                isUsed[i] = false;
+            }
+        }
+    }
+    public int solution(String numbers) {
+        int answer = 0;
+        boolean[] isUsed = new boolean[numbers.length()];
+        List<Integer> list = new ArrayList<>();
+        dfsD(numbers, 0, isUsed, list);
+        answer = list.size();
+        return answer;
+    }
+    //첫 번째 풀이
+    /*boolean[] isUsed = new boolean[10];
     int[] cardsArr;
     String cards = "";
     int cardsLength;
@@ -65,7 +96,7 @@ public class 소수_찾기 {
             }
         }
         return answer;
-    }
+    }*/
 
     public static void main(String[] args) {
 

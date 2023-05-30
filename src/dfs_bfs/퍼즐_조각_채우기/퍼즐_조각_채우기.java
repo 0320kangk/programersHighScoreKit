@@ -118,7 +118,6 @@ public class 퍼즐_조각_채우기 {
             }
         }
         Collections.sort(results);
-
         return results;
     }
 
@@ -156,7 +155,6 @@ public class 퍼즐_조각_채우기 {
                 point.x -= x;
                 point.y -= y;
             }
-
         }
         return false;
     }
