@@ -1,24 +1,33 @@
-package sort.H_Index;
+package sort;
+
+import com.sun.tools.attach.AttachNotSupportedException;
 
 public class H_Index {
 
     public int solution(int[] citations) {
 
-        int h = citations.length;
-        int count = 0;
-        //논문 h번 이상 논문 h번 개수 이상 만족, 나머지 h 이하 인용
-        while ( true ) {
-            count=0;
+        int answer = 0;
+
+        int length = citations.length;
+        int h = length;
+
+        // [1,1,1,2,2]
+        while (h > 0) {
+            //인용된 논문 수
+            int quotationCount = 0;
             for (int citation : citations) {
                 if (citation >= h) {
-                    count++;
+                    quotationCount++;
                 }
             }
-            if (count >= h) {
-                return h;
+            if ( quotationCount >= h  && length - quotationCount <= h ) {
+                answer = h;
+                break;
             }
             h--;
         }
+
+        return answer;
     }
 
     public static void main(String[] args) {

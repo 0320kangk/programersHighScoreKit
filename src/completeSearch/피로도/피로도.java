@@ -1,31 +1,15 @@
-package completeSearch.피로도;
+package completeSearch;
 
 public class 피로도 {
-    boolean[] used;
-    int max = 0;
-    void search(int k, int[][] dungeons, int count) {
-        if ( count > max){
-            max = count;
-        }
-        for (int i = 0; i < dungeons.length; i++) {
-            if (!used[i] && k >= dungeons[i][0] ) {
-                used[i] = true;
-                search( k-dungeons[i][1],dungeons, count + 1);
-                used[i] = false;
-            }
-        }
-    }
-    public int solution(int k, int[][] dungeons) {
-        used = new boolean[dungeons.length];
-        search(k, dungeons, 0);
-        return max;
-    }
-    /*boolean[] dungeonsUse;
+
+
+    boolean[] dungeonsUse;
     int size;
     int totalCount = 0;
 
 
     void tracking(int fatigue, int[][] dungeons, int count ) {
+
 
         if ( count > totalCount ) {
             totalCount =count;
@@ -42,7 +26,9 @@ public class 피로도 {
         }
 
     }
+
     public int solution(int k, int[][] dungeons) {
+
         int answer = -1;
         size = dungeons.length;
         dungeonsUse = new boolean[size];
@@ -50,7 +36,6 @@ public class 피로도 {
         answer = totalCount;
         return answer;
     }
-    */
     public static void main(String[] args) {
 
         피로도 피로도 = new 피로도();

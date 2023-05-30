@@ -1,44 +1,10 @@
-package completeSearch.모의고사;
+package completeSearch;
 
 import java.util.*;
 
 public class 모의고사 {
     public int[] solution(int[] answers) {
-
-        int[] a = {1,2,3,4,5};
-        int[] b = {2,1,2,3,2,4,2,5};
-        int[] c = {3,3,1,1,2,2,4,4,5,5};
-
         int[] scoreArray = new int[3];
-        for (int i = 0; i < answers.length; i++) {
-            if (a[i % a.length] == answers[i]) {
-                scoreArray[0]++;
-            }
-            if (b[i % b.length] == answers[i]) {
-                scoreArray[1]++;
-            }
-            if (c[i % c.length] == answers[i]) {
-                scoreArray[2]++;
-            }
-        }
-        int max = Arrays.stream(scoreArray)
-                .max()
-                .getAsInt();
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < scoreArray.length; i++) {
-            if ( max == scoreArray[i]) {
-                list.add(i+1);
-            }
-        }
-        return list.stream()
-                .mapToInt( x-> x)
-                .toArray();
-
-
-
-
-
- /*       int[] scoreArray = new int[3];
         int[] a = {1, 2, 3, 4, 5};
         int[] b = {2, 1, 2, 3, 2, 4, 2, 5};
         int[] c = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
@@ -59,7 +25,7 @@ public class 모의고사 {
                 scoreArray[2]++;
             }
         }
-*/
+
         //처음 풀이
      /*   for (int i = 0; i < answers.length; i++) {
             if ( i % 5 + 1 == answers[i] ) {
@@ -82,7 +48,7 @@ public class 모의고사 {
                 answerArray[2]++;
             }
         }*/
-      /*  int max = Arrays.stream(scoreArray).max().getAsInt();
+        int max = Arrays.stream(scoreArray).max().getAsInt();
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < scoreArray.length; i++) {
             if (max == scoreArray[i]) {
@@ -93,7 +59,7 @@ public class 모의고사 {
                 .mapToInt( x -> x)
                 .toArray();
 
-        return answer;*/
+        return answer;
     }
 
     public static void main(String[] args) {
