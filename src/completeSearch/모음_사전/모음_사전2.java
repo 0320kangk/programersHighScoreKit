@@ -1,7 +1,6 @@
-package completeSearch;
+package completeSearch.모음_사전;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class 모음_사전 {
 
