@@ -38,7 +38,6 @@ N이 5인 경우의 1~3번 박스 이미지
 public class N으로_표현 {
     //a번과 b번 박스의 연산 구하기
     void unionSet(Set<Integer> union, Set<Integer> a, Set<Integer> b) {
-
         for (Integer num1 : a) {
             for (Integer num2 : b) {
                 union.add(num1 + num2);
@@ -61,6 +60,7 @@ public class N으로_표현 {
         //2번 박스 이상의 박스 값 구하기
         for (int i = 2; i < 9; i++) {
             for (int j = 1; j <= i / 2; j++) {
+                //j==3 i ==4 
                 unionSet(setList.get(i), setList.get(j), setList.get(i-j)); 
                 unionSet(setList.get(i), setList.get(i-j), setList.get(j));
             }
